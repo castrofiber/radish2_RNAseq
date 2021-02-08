@@ -1,0 +1,27 @@
+# Inputs
+CONTAMINANTS : ../Contaminants/Radish_contaminants_UniVec_TruSeq.fasta  # custom-made contaminants file
+ADAPTERS: ../Contaminants/Adapters.fa  # custom-made file with adapters
+REF_RNA: ../Refs/REF_GCF_000801105.1_Rs1.0_rna.fa
+T2G: ../Refs/TTG_Rsa1.txt  # transcript-to-gene correspondence
+PHENOTABLE: ../Refs/Phenotable.tsv  # manually created
+ANNOTATION: ../Refs/Radish_vs_Araport11_db.out  # blast results vs Araport v11
+DESCRIPTION: ../Refs/RNA_ids_mod.txt  # RNA ID - description correspondence
+AT_TFS: ../Refs/families_data.tbl
+# MANUAL_TFS: ../Refs/Manual_TF_filter.tsv
+PLANT_GSEA: ../Refs/PlantGSEA_Athal_all.txt
+
+# Folders and samples
+SAMPLE_IDS:
+  - 19K1
+  - 19K2
+  - 19K3
+  - 19O1
+  - 19O2
+  - 19O3
+READS_DIR: ../Reads
+RESULTS_DIR: ../Results
+DIAG_DIR: ../Diagnostics
+
+# Resources
+THREADS: 20
+MEMORY: "50G"
