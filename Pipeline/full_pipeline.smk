@@ -1,6 +1,8 @@
 configfile: "config.yaml"
 ENVIRONMENT = "environment.yaml"
 
+import os.path
+
 SAMPLE_IDS = config["SAMPLE_IDS"]  # sample IDs
 READS_DIR = config["READS_DIR"]  # folder with reads in fastq
 RESULTS_DIR = config["RESULTS_DIR"]  # path where output will be stored
@@ -23,7 +25,6 @@ if not os.path.exists(RESULTS_DIR):
 
 if not os.path.exists(DIAG_DIR):
     os.makedirs(DIAG_DIR)
-
 
 # Params
 THREADS = config["THREADS"]
@@ -65,7 +66,7 @@ rule bbduk_adapters:
     threads: THREADS
     conda: ENVIRONMENT
     shell:
-        "bbduk.sh -Xmx{MEMORY} -t={threads}"
+        "bbduk.sh -Xmx{MEMORY} -t={threads} "
         "in1={input.in1} in2={input.in2} "
         "out1={output.out1} out2={output.out2} "
         "ref={ADAPTERS} ktrim={params.ktrim} qtrim={params.qtrim} "
@@ -147,7 +148,7 @@ rule kallisto_quant:
         log=DIAG_DIR + "/{sample}.kallisto.log",
         outfile=RESULTS_DIR + "/{sample}.kallisto/abundance.h5"
     params:
-        outdir=directory(RESULTS_DIR + "/{sample}.kallisto")
+        outdir=RESULTS_DIR + "/{sample}.kallisto"
     threads: THREADS
     conda: ENVIRONMENT
     shell:

@@ -1,0 +1,5 @@
+Building DAG of jobs...
+MissingInputException in line 52 of /home/cf/Transcriptomes/Radish2_RNAseq/Pipeline/full_pipeline.smk:
+Missing input files for rule bbduk_adapters:
+../Reads/19K1_1.fastq.gz
+../Reads/19K1_2.fastq.gz
