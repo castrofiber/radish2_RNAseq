@@ -22,3 +22,4 @@ dependencies:
   - bioconductor-fgsea = 1.16.0
   - r-cowplot = 1.1.1
   - bioconductor-rhdf5 = 2.34.0
+  - bioconductor-apeglm = 1.12.0
