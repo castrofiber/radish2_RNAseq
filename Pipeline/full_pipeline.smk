@@ -86,7 +86,7 @@ rule trimmomatic:
     threads: THREADS
     conda: ENVIRONMENT
     shell:
-        "java -jar trimmomatic-0.39.jar PE -threads {threads} -phred33 {input.in1} {input.in2} "
+        "trimmomatic PE -threads {threads} -phred33 {input.in1} {input.in2} "
         "{output.out1} {output.out1u} {output.out2} {output.out2u} "
         "ILLUMINACLIP:{ADAPTERS}:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36"
 
