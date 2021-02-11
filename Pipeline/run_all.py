@@ -1,6 +1,6 @@
 # Usage:
 # python3 run_all.py
-# make sure put some reads in Reads folder and define correspondent sample IDs in config.yaml
+# make sure you put some reads in Reads folder and define correspondent sample IDs in config.yaml
 # also specify memory and threads
 
 import os.path
