@@ -6,4 +6,4 @@ To run the analysis put reads from http://www.ncbi.nlm.nih.gov/bioproject/686790
 ## Prerequisites
 python v3.7.4\
 snakemake v5.10.0\
-conda v4.8.5\
+conda v4.8.5
