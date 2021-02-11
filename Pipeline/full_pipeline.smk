@@ -1,8 +1,6 @@
 configfile: "config.yaml"
 ENVIRONMENT = "environment.yaml"
 
-import os.path
-
 SAMPLE_IDS = config["SAMPLE_IDS"]  # sample IDs
 READS_DIR = config["READS_DIR"]  # folder with reads in fastq
 RESULTS_DIR = config["RESULTS_DIR"]  # path where output will be stored
@@ -12,8 +10,8 @@ DIAG_DIR = config["DIAG_DIR"]  # path to diagnostic outputs
 REF_RNA = config["REF_RNA"]  # fasta with reference transcripts
 ADAPTERS = config["ADAPTERS"]  # illumina and RT-PCR adapters
 CONTAMINANTS = config["CONTAMINANTS"]  # radish contaminants
-T2G = config["T2G"]  # transcript-to-gene correspondenceq
-PHENOTABLE = config["PHENOTABLE"]
+T2G = config["T2G"]  # transcript-to-gene correspondence
+PHENOTABLE = config["PHENOTABLE"]  # table of phenotypes (sample_ID"\t"condition)
 ANNOTATION = config["ANNOTATION"]
 DESCRIPTION = config["DESCRIPTION"]
 AT_TFS = config["AT_TFS"]  # table with annotated At TFs
