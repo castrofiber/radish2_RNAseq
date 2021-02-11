@@ -14,7 +14,7 @@ sign_results <- read_csv(snakemake@input[["DEtable"]]) %>%
 phenotable <- read_tsv(snakemake@input[["phenotable"]])
 
 # Read expression matrix with normalized values
-normalized_expression <- read_csv(snakemake@input[["normalized_expression"]], col_types = "cnnnn")
+normalized_expression <- read_csv(snakemake@input[["normalized_expression"]])
 
 # TF annotation
 TF_annotation_table <- read_tsv(snakemake@input[["AtTFs"]], col_names = F) %>% 
