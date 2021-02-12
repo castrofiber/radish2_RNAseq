@@ -1,5 +1,11 @@
-configfile: "config.yaml"
-ENVIRONMENT = "environment.yaml"
+from os import path
+
+SNAKEDIR = path.dirname(workflow.snakefile)
+
+if not workflow.overwrite_configfiles:
+    configfile: path.join(SNAKEDIR, "config.yaml")
+
+ENVIRONMENT = path.join(SNAKEDIR, "environment.yaml")
 
 SAMPLE_IDS = config["SAMPLE_IDS"]  # sample IDs
 READS_DIR = config["READS_DIR"]  # folder with reads in fastq
