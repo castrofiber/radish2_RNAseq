@@ -25,7 +25,7 @@ T2G = append_path(config["T2G"])  # transcript-to-gene correspondence
 PHENOTABLE = append_path(config["PHENOTABLE"])  # table of phenotypes (sample_ID"\t"condition)
 ANNOTATION = append_path(config["ANNOTATION"])
 DESCRIPTION = append_path(config["DESCRIPTION"])
-AT_TFS = config["AT_TFS"]  # table with annotated At TFs
+AT_TFS = append_path(config["AT_TFS"])  # table with annotated At TFs
 # MANUAL_TFS = config["MANUAL_TFS"]  # manual filter imposed on TFs (see TF.R for details)
 PLANT_GSEA = append_path(config["PLANT_GSEA"])  # gene list matrix transposed from PlantGSEA
 
