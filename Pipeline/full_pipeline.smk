@@ -1,28 +1,33 @@
-from os import path
+import os
 
-SNAKEDIR = path.dirname(workflow.snakefile)
+SNAKEDIR = os.path.dirname(workflow.snakefile)
 
 if not workflow.overwrite_configfiles:
-    configfile: path.join(SNAKEDIR, "config.yaml")
+    configfile: os.path.join(SNAKEDIR, "config.yaml")
 
-ENVIRONMENT = path.join(SNAKEDIR, "environment.yaml")
+ENVIRONMENT = os.path.join(SNAKEDIR, "environment.yaml")
+
+def append_path(path):
+    # adds a common prefix to paths imported from config
+    new_path = os.path.join(SNAKEDIR, path)
+    return new_path
 
 SAMPLE_IDS = config["SAMPLE_IDS"]  # sample IDs
-READS_DIR = config["READS_DIR"]  # folder with reads in fastq
-RESULTS_DIR = config["RESULTS_DIR"]  # path where output will be stored
-DIAG_DIR = config["DIAG_DIR"]  # path to diagnostic outputs
+READS_DIR = append_path(config["READS_DIR"])  # folder with reads in fastq
+RESULTS_DIR = append_path(config["RESULTS_DIR"])  # path where output will be stored
+DIAG_DIR = append_path(config["DIAG_DIR"])  # path to diagnostic outputs
 
 # input data
-REF_RNA = config["REF_RNA"]  # fasta with reference transcripts
-ADAPTERS = config["ADAPTERS"]  # illumina and RT-PCR adapters
-CONTAMINANTS = config["CONTAMINANTS"]  # radish contaminants
-T2G = config["T2G"]  # transcript-to-gene correspondence
-PHENOTABLE = config["PHENOTABLE"]  # table of phenotypes (sample_ID"\t"condition)
-ANNOTATION = config["ANNOTATION"]
-DESCRIPTION = config["DESCRIPTION"]
+REF_RNA = append_path(config["REF_RNA"])  # fasta with reference transcripts
+ADAPTERS = append_path(config["ADAPTERS"])  # illumina and RT-PCR adapters
+CONTAMINANTS = append_path(config["CONTAMINANTS"])  # radish contaminants
+T2G = append_path(config["T2G"])  # transcript-to-gene correspondence
+PHENOTABLE = append_path(config["PHENOTABLE"])  # table of phenotypes (sample_ID"\t"condition)
+ANNOTATION = append_path(config["ANNOTATION"])
+DESCRIPTION = append_path(config["DESCRIPTION"])
 AT_TFS = config["AT_TFS"]  # table with annotated At TFs
 # MANUAL_TFS = config["MANUAL_TFS"]  # manual filter imposed on TFs (see TF.R for details)
-PLANT_GSEA = config["PLANT_GSEA"]  # gene list matrix transposed from PlantGSEA
+PLANT_GSEA = append_path(config["PLANT_GSEA"])  # gene list matrix transposed from PlantGSEA
 
 if not os.path.exists(RESULTS_DIR):
     os.makedirs(RESULTS_DIR)
